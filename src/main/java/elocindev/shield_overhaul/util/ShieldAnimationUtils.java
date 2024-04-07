@@ -10,7 +10,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
 public class ShieldAnimationUtils {
-    private static SpeedModifier ANIMATION_SPEED = new SpeedModifier(2.0f);
+    private static SpeedModifier PARRY_SPEED = new SpeedModifier(2.0f);
+    private static SpeedModifier BASH_SPEED = new SpeedModifier(2.2f);
 
     public static void playShieldAnimation(PlayerEntity user, String animation) {
         if (user != null) {
@@ -18,9 +19,8 @@ public class ShieldAnimationUtils {
             KeyframeAnimation anim = PlayerAnimationRegistry.getAnimation(new Identifier(ShieldOverhaul.MODID, animation));
             var builder = anim.mutableCopy();
             anim = builder.build();
-            animationContainer.addModifierLast(ANIMATION_SPEED);
+            animationContainer.addModifierLast(animation.contains("bash") ? BASH_SPEED : PARRY_SPEED);
             animationContainer.setAnimation(new KeyframeAnimationPlayer(anim).setFirstPersonMode(FirstPersonMode.THIRD_PERSON_MODEL));
         }
-        //animationContainer.replaceAnimationWithFade(AbstractFadeModifier.standardFadeIn(0, Ease.CONSTANT), null);
     }
 }
