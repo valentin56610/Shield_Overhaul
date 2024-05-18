@@ -1,0 +1,6 @@
+{
+    "effect.shield_overhaul.stun":"Étourdissement",
+    "effect.shield_overhaul.stun.description":"La cible est incapable de bouger, d'utiliser des objets ou d'attaquer.",
+    "effect.shield_overhaul.stun_immunity":"Immunité à l'étourdissement",
+    "effect.shield_overhaul.stun_immunity.description":"La cible est immunisée contre l'étourdissement."
+}
